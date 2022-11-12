@@ -1,4 +1,7 @@
 # Trabalho---PDS-2
+
+Integrantes: Arthur Felipe Nascimento Kruschewsky (2021020635) e Arthur Vitorino Lanna (2020025340)
+
 User stories - Restaurante
 
 // 1) Descrição: como dono de um restaurante, gostaria de um meio 
