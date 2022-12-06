@@ -1,0 +1,98 @@
+Pessoa{
+
+    std::string nome;
+    std::string email;
+    std::string senha = "0000";
+
+    void set_senha(std::string old_pass, std::string new_pass); // cria nova senha, muda senha se acertar a antiga
+
+}
+
+
+Proprietario : public Pessoa{
+
+    Quadro_Funcionarios &quadro;
+
+}
+
+
+Quadro_Funcionarios{
+
+    std::vector<Funcionario &> funcionarios;
+
+    void add_funcionario(Funcionario new);
+
+    void rmv_funcionario(std::string fired);
+
+    void print_funcionarios();
+
+}
+
+
+
+Funcionario : public Pessoa{
+
+    double salario;
+    std::vector<std::string> tarefa; // tarefas de cada funcionario adicionadas pelo gerente
+
+}
+
+    Gerente : public Funcionario, public Quadro_Funcionarios{
+
+        void add_tarefa(std::string tarefa);
+
+        double caixa = 0;
+
+        void get_caixa();
+
+    }
+
+
+
+Cliente : public Pessoa{
+
+    Pedido pedido;
+    
+}
+
+
+Estoque : public Produto{
+
+    std::map<Produto, unsigned> itens; // <Produto, quantidade>
+
+    void add_item(std::string item, unsigned quant); // adicionar produto e quantidade
+
+    void rmv_item(std::string item, unsigned quant); // remover produto e quantidade, somar o valor da venda no caixa
+
+    void print_stock();
+
+    void print_menu();
+
+}
+
+Pedido : public Produto{
+
+    std::map<Produto, unsigned> carrinho; // <Produto, quantidade>
+
+    std::string endereco;
+
+    void print_pedido();
+
+    void set_endereco(std::string endereco);
+
+    void get_endereco();
+
+    void add_pedido(std::string item, unsigned quant);
+
+    void rmv_pedido(std::string item, unsigned quant);
+
+    void calc_preco();
+
+}
+
+Produto{
+
+    std::string nome;
+    double preco;
+
+}
